@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
-import './NoteForm.css';
+import React, { Component } from "react";
+import "./NoteForm.css";
 
 class NoteForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      newNoteContent: '',
+      newNoteContent: ""
     };
     this.handleUserInput = this.handleUserInput.bind(this);
     this.writeNote = this.writeNote.bind(this);
   }
 
-// When the user input changes, set the newNoteContent
-// to the value of what's in the input box.
+  // When the user input changes, set the newNoteContent
+  // to the value of what's in the input box.
   handleUserInput(e) {
     this.setState({
-      newNoteContent: e.target.value, // the value of the text input.
-    })
+      newNoteContent: e.target.value // the value of the text input.
+    });
   }
 
   writeNote() {
@@ -26,21 +26,24 @@ class NoteForm extends Component {
 
     // Set newNoteContent back to an empty string.
     this.setState({
-      newNoteContent: '',
-    })
+      newNoteContent: ""
+    });
   }
 
   render() {
-    return(
+    return (
       <div className="formWrapper">
-        <input className="noteInput"
+        <input
+          className="noteInput"
           placeholder="Write a New Note..."
           value={this.state.newNoteContent}
-          onChange={this.handleUserInput} />
-          <button className="noteButton"
-            onClick={this.writeNote}>Add Note</button>
+          onChange={this.handleUserInput}
+        />
+        <button className="noteButton" onClick={this.writeNote}>
+          Add Note
+        </button>
       </div>
-    )
+    );
   }
 }
 
